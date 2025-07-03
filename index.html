@@ -8,7 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- =============================================================== -->
-    <!-- الخطوة 1 للإعلانات: بعد موافقة جوجل، ضع كود AdSense الرئيسي هنا -->
+    <!-- الخطوة 1: تم وضع كود AdSense الرئيسي هنا -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2481147154331239"
+     crossorigin="anonymous"></script>
     <!-- =============================================================== -->
 
 </head>
@@ -16,14 +18,11 @@
 
     <main class="container">
         <header>
-            <!-- ============================================= -->
-            <!-- الإضافة الجديدة: الشعار -->
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" class="logo" xmlns="http://www.w3.org/2000/svg">
                 <path d="M8 3H12.5C15.5376 3 18 5.46243 18 8.5C18 11.5376 15.5376 14 12.5 14H8V3Z" stroke="#3f51b5" stroke-width="1.5"/>
                 <path d="M8 12H13.5C16.5376 12 19 14.4624 19 17.5C19 20.5376 16.5376 23 13.5 23H8V12Z" stroke="#3f51b5" stroke-width="1.5"/>
                 <path d="M12.5 8.5C12.5 9.88071 11.3807 11 10 11C8.61929 11 7.5 9.88071 7.5 8.5C7.5 7.11929 8.61929 6 10 6C11.3807 6 12.5 7.11929 12.5 8.5Z" fill="#303f9f"/>
             </svg>
-            <!-- ============================================= -->
 
             <h1>✨ اكتشف أسرار برجك الفلكي ✨</h1>
             <p>أدخل تاريخ ميلادك لنكشف لك عن برجك، صفاتك، وأسرار يومك.</p>
@@ -34,8 +33,6 @@
             <input type="date" id="birthdate" required>
             <button id="calculateBtn">اكتشف برجي</button>
         </section>
-
-        <!-- ... باقي محتوى الـ html كما هو ... -->
 
         <div id="loader" class="hidden">
             <div class="spinner"></div>
@@ -64,9 +61,21 @@
                 <p id="zodiacAdvice"></p>
             </div>
         </section>
-        <div class="ad-placeholder">
-            <p>مساحة إعلانية</p>
-        </div>
+
+        <!-- ============================================= -->
+        <!-- الخطوة 2: تم وضع كود الوحدة الإعلانية هنا -->
+        <!-- ⚠️ هام: استبدل 1234567890 بالـ ad-slot الخاص بك من حساب AdSense -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2481147154331239"
+            data-ad-slot="1234567890" 
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- ============================================= -->
+
     </main>
 
     <footer>
