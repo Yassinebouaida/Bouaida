@@ -4,45 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية</title>
-    <!-- استيراد نفس الخط المستخدم في التطبيق لمظهر متناسق -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- =============================================================== -->
-    <!-- تم وضع كود AdSense الرئيسي هنا -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2481147154331239"
      crossorigin="anonymous"></script>
-    <!-- =============================================================== -->
 
+    <!-- تصميم جديد لصفحة سياسة الخصوصية ليتماشى مع التطبيق -->
     <style>
+        :root {
+            --primary-color: #FFD700;
+            --background-start: #0c0a1f;
+            --background-end: #2a2a55;
+            --text-primary: #F0F0F0;
+            --text-secondary: #b0b0d0;
+            --container-bg: rgba(22, 22, 44, 0.7);
+            --container-border: rgba(255, 215, 0, 0.2);
+        }
         body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: #f7f9fc;
-            color: #333;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(160deg, var(--background-start), var(--background-end));
+            color: var(--text-primary);
             line-height: 1.8;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
         .container {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px 40px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px 40px;
+            background: var(--container-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--container-border);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
         h1 {
-            color: #1a237e;
+            color: var(--primary-color);
             text-align: center;
-            border-bottom: 2px solid #eee;
+            border-bottom: 1px solid var(--container-border);
             padding-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         h2 {
-            color: #303f9f;
+            color: var(--primary-color);
             margin-top: 30px;
         }
+        p, ul {
+            color: var(--text-secondary);
+        }
         a {
-            color: #3f51b5;
+            color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         a:hover {
             text-decoration: underline;
@@ -50,39 +67,44 @@
         .back-link {
             display: block;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             font-weight: 700;
+            background: linear-gradient(45deg, #FFC107, var(--primary-color));
+            color: #111;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-link:hover {
+            text-decoration: none;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>سياسة الخصوصية لتطبيق "اكتشف أسرار برجك الفلكي"</h1>
+        <h1>سياسة الخصوصية لتطبيق "مرآة الأبراج"</h1>
         <p><strong>آخر تحديث:</strong> [اكتب تاريخ اليوم هنا]</p>
 
         <p>خصوصيتك تهمنا. توضح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية المعلومات التي تقدمها عند استخدامك لتطبيقنا.</p>
 
         <h2>المعلومات التي نجمعها</h2>
-        <p>عند استخدامك لتطبيقنا، نحن نجمع المعلومات التالية:</p>
         <ul>
             <li><strong>تاريخ الميلاد:</strong> نقوم بجمع تاريخ ميلادك لغرض وحيد وهو حساب برجك الفلكي وتقديم المعلومات المتعلقة به.</li>
-            <li><strong>البيانات المخزنة محليًا (LocalStorage):</strong> لتوفير تجربة استخدام أفضل، قد نقوم بتخزين تاريخ ميلادك على جهازك محليًا باستخدام تقنية LocalStorage. هذا يسمح للتطبيق بتذكر تاريخ ميلادك عند زيارتك مرة أخرى، ولا يتم إرسال هذه البيانات إلى أي خادم.</li>
+            <li><strong>البيانات المخزنة محليًا (LocalStorage):</strong> لتوفير تجربة استخدام أفضل، نقوم بتخزين تاريخ ميلادك على جهازك محليًا. هذا يسمح للتطبيق بتذكر تاريخ ميلادك عند زيارتك مرة أخرى، ولا يتم إرسال هذه البيانات إلى أي خادم.</li>
         </ul>
 
         <h2>استخدام الإعلانات وملفات تعريف الارتباط (Cookies)</h2>
         <p>نحن نستخدم شركات إعلانات خارجية (مثل Google AdSense) لعرض الإعلانات على تطبيقنا. قد تستخدم هذه الشركات معلومات حول زياراتك لهذا الموقع والمواقع الأخرى على الويب (باستثناء الاسم أو العنوان أو عنوان البريد الإلكتروني أو رقم الهاتف) من أجل تقديم إعلانات حول البضائع والخدمات التي تهمك.</p>
-        <ul>
-            <li>تستخدم Google، بصفتها مورّدًا خارجيًا، ملفات تعريف ارتباط لعرض الإعلانات على موقعنا.</li>
-            <li>يمكّن استخدام Google لملف تعريف الارتباط DART من عرض الإعلانات للمستخدمين استنادًا إلى زياراتهم لموقعنا والمواقع الأخرى على الإنترنت.</li>
-            <li>يمكن للمستخدمين اختيار عدم استخدام ملف تعريف الارتباط DART عن طريق زيارة صفحة سياسة الخصوصية الخاصة بإعلانات Google وشبكة المحتوى على الرابط التالي: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></li>
-        </ul>
-
+        
         <h2>أمان بياناتك</h2>
         <p>نحن نتخذ إجراءات معقولة لحماية المعلومات التي تقدمها، ولكن لا توجد طريقة نقل عبر الإنترنت أو تخزين إلكتروني آمنة بنسبة 100%. لذلك، لا يمكننا ضمان أمانها المطلق.</p>
 
         <h2>التغييرات على سياسة الخصوصية</h2>
-        <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنعلمك بأي تغييرات عن طريق نشر سياسة الخصوصية الجديدة على هذه الصفحة. يُنصح بمراجعة سياسة الخصوصية هذه بشكل دوري للاطلاع على أي تغييرات.</p>
+        <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. يُنصح بمراجعة سياسة الخصوصية هذه بشكل دوري للاطلاع على أي تغييرات.</p>
 
         <h2>اتصل بنا</h2>
         <p>إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه، يمكنك الاتصال بنا عبر البريد الإلكتروني: <strong>[ضع بريدك الإلكتروني هنا]</strong></p>
