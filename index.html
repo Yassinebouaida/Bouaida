@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اكتشف أسرار برجك الفلكي</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>مرآة الأبراج - اكتشف أسرار برجك</title>
     
-    <!-- =============================================================== -->
-    <!-- الخطوة 1: تم وضع كود AdSense الرئيسي هنا -->
+    <!-- الخط الجديد: تم تغيير الخط إلى Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2481147154331239"
      crossorigin="anonymous"></script>
-    <!-- =============================================================== -->
-
 </head>
 <body>
 
     <main class="container">
         <header>
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" class="logo" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 3H12.5C15.5376 3 18 5.46243 18 8.5C18 11.5376 15.5376 14 12.5 14H8V3Z" stroke="#3f51b5" stroke-width="1.5"/>
-                <path d="M8 12H13.5C16.5376 12 19 14.4624 19 17.5C19 20.5376 16.5376 23 13.5 23H8V12Z" stroke="#3f51b5" stroke-width="1.5"/>
-                <path d="M12.5 8.5C12.5 9.88071 11.3807 11 10 11C8.61929 11 7.5 9.88071 7.5 8.5C7.5 7.11929 8.61929 6 10 6C11.3807 6 12.5 7.11929 12.5 8.5Z" fill="#303f9f"/>
+            <!-- الشعار الجديد: دائرة الأبراج الفلكية -->
+            <svg class="logo" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" stroke="#FFD700" stroke-width="1.5"/>
+                <circle cx="50" cy="50" r="38" stroke="#FFD700" stroke-opacity="0.5" stroke-width="1"/>
+                <circle cx="50" cy="50" r="16" stroke="#FFD700" stroke-width="1.5"/>
+                <path d="M50 0V100M0 50H100" stroke="#FFD700" stroke-opacity="0.3" stroke-width="1"/>
+                <path d="M14.64 14.64L85.36 85.36M14.64 85.36L85.36 14.64" stroke="#FFD700" stroke-opacity="0.3" stroke-width="1"/>
+                <!-- Symbols will be placed here -->
             </svg>
-
-            <h1>✨ اكتشف أسرار برجك الفلكي ✨</h1>
+            
+            <h1>اكتشف أسرار برجك الفلكي</h1>
             <p>أدخل تاريخ ميلادك لنكشف لك عن برجك، صفاتك، وأسرار يومك.</p>
         </header>
 
@@ -38,6 +43,7 @@
             <div class="spinner"></div>
             <p>جاري تحليل أسرار الفلك...</p>
         </div>
+
         <section id="result" class="hidden">
             <img id="zodiacImage" src="" alt="صورة البرج" class="zodiac-image">
             <h2 id="zodiacName"></h2>
@@ -62,11 +68,8 @@
             </div>
         </section>
 
-        <!-- ============================================= -->
-        <!-- الخطوة 2: تم وضع كود الوحدة الإعلانية هنا -->
-        <!-- ⚠️ هام: استبدل 1234567890 بالـ ad-slot الخاص بك من حساب AdSense -->
         <ins class="adsbygoogle"
-            style="display:block"
+            style="display:block; margin-top: 25px;"
             data-ad-client="ca-pub-2481147154331239"
             data-ad-slot="1234567890" 
             data-ad-format="auto"
@@ -74,13 +77,12 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-        <!-- ============================================= -->
 
     </main>
 
     <footer>
         <p>
-            صُنع بحب ♥ بواسطة bouaida
+            صُنع بحب ✨ بواسطة bouaida
             <br>
             <a href="privacy.html" class="footer-link">سياسة الخصوصية</a>
         </p>
