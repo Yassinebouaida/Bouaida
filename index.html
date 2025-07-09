@@ -12,16 +12,113 @@
 </head>
 <body>
 
-    <!-- هذا الجزء يبقى كما هو -->
+    <!-- === شريط التنقل العلوي الجديد === -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-item active">
+            <span>الرئيسية</span>
+        </a>
+        <a href="articles.html" class="nav-item">
+            <span>المقالات</span>
+        </a>
+    </nav>
+
     <main class="container">
-        <!-- ... (كل محتوى الصفحة الرئيسية هنا) ... -->
+        <header>
+            <svg class="logo" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="48" stroke="#FFD700" stroke-width="1.5"/>
+                <circle cx="50" cy="50" r="38" stroke="#FFD700" stroke-opacity="0.5" stroke-width="1"/>
+                <circle cx="50" cy="50" r="16" stroke="#FFD700" stroke-width="1.5"/>
+                <path d="M50 0V100M0 50H100" stroke="#FFD700" stroke-opacity="0.3" stroke-width="1"/>
+                <path d="M14.64 14.64L85.36 85.36M14.64 85.36L85.36 14.64" stroke="#FFD700" stroke-opacity="0.3" stroke-width="1"/>
+            </svg>
+            <h1>اكتشف أسرار برجك الفلكي</h1>
+            <p>أدخل تاريخ ميلادك لنكشف لك عن برجك، صفاتك، وأسرار يومك.</p>
+        </header>
+
+        <section class="input-section">
+            <label for="birthdate">تاريخ ميلادك:</label>
+            <input type="date" id="birthdate" required>
+            <button id="calculateBtn">اكتشف برجي</button>
+        </section>
+
+        <div id="loader" class="hidden">
+            <div class="spinner"></div>
+            <p>جاري تحليل أسرار الفلك...</p>
+        </div>
+
+        <section id="result" class="hidden">
+            <img id="zodiacImage" src="" alt="صورة البرج" class="zodiac-image">
+            <h2 id="zodiacName"></h2>
+            <p id="zodiacDates" class="zodiac-dates"></p>
+            <div class="result-grid">
+                <div class="grid-item">
+                    <h4>اللون المحظوظ</h4>
+                    <p id="luckyColor"></p>
+                </div>
+                <div class="grid-item">
+                    <h4>رقم الحظ</h4>
+                    <p id="luckyNumber"></p>
+                </div>
+            </div>
+            <div class="result-details">
+                <h3>وصف الشخصية:</h3>
+                <p id="zodiacDescription"></p>
+                <h3>التوافق:</h3>
+                <p id="compatibility"></p>
+                <h3>نصيحة اليوم:</h3>
+                <p id="zodiacAdvice"></p>
+            </div>
+        </section>
     </main>
+    
     <main class="container">
-        <!-- ... (كل محتوى الصفحة الرئيسية هنا) ... -->
+        <h2 class="section-title">الأبراج اليومية</h2>
+        <div id="daily-horoscopes-grid" class="horoscope-grid"></div>
     </main>
+
     <main class="container">
-        <!-- ... (كل محتوى الصفحة الرئيسية هنا) ... -->
+        <h2 class="section-title">اكتشف صفات الأبراج بالتفصيل</h2>
+        <div id="traits-grid" class="horoscope-grid"></div>
     </main>
+
+    <main class="container">
+        <h2 class="section-title">حاسبة التوافق بين الأبراج</h2>
+        <div class="compatibility-box">
+            <p class="compatibility-instruction">اختر برجين واكتشف سر العلاقة بينهما.</p>
+            <div class="selectors-container">
+                <select id="sign1" class="zodiac-select"></select>
+                <span class="heart-icon">❤</span>
+                <select id="sign2" class="zodiac-select"></select>
+            </div>
+            <button id="calculate-compatibility-btn">احسب التوافق</button>
+            <div id="compatibility-result"></div>
+        </div>
+    </main>
+
+    <div id="trait-modal" class="modal-backdrop hidden">
+        <div class="modal-content container">
+            <button id="modal-close-btn" class="modal-close">×</button>
+            <img id="modal-zodiac-image" src="" alt="صورة البرج" class="zodiac-image">
+            <h2 id="modal-zodiac-name"></h2>
+            <p id="modal-zodiac-dates" class="zodiac-dates"></p>
+            <div class="result-details">
+                <h3>وصف الشخصية:</h3>
+                <p id="modal-zodiac-description"></p>
+                <h3>نقاط القوة:</h3>
+                <p id="modal-zodiac-strengths"></p>
+                <h3>نقاط الضعف:</h3>
+                <p id="modal-zodiac-weaknesses"></p>
+            </div>
+        </div>
+    </div>
+
+    <ins class="adsbygoogle"
+        style="display:block; margin: 25px auto;"
+        data-ad-client="ca-pub-2481147154331239"
+        data-ad-slot="1234567890" 
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
     <footer>
         <p>
@@ -32,16 +129,6 @@
     </footer>
 
     <script src="script.js"></script>
-
-    <!-- === شريط التنقل السفلي الجديد === -->
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item active">
-            <span>الرئيسية</span>
-        </a>
-        <a href="articles.html" class="nav-item">
-            <span>المقالات</span>
-        </a>
-    </nav>
 
 </body>
 </html>
