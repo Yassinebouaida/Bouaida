@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مرآة الأبراج - اكتشف أسرار برجك</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N3SLMMQX');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
@@ -11,6 +20,11 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2481147154331239" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3SLMMQX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- === شريط التنقل العلوي الجديد === -->
     <nav class="top-nav">
@@ -21,6 +35,8 @@
             <span>المقالات</span>
         </a>
     </nav>
+
+    <!-- ... باقي محتوى الصفحة كما هو ... -->
 
     <main class="container">
         <header>
@@ -34,18 +50,15 @@
             <h1>اكتشف أسرار برجك الفلكي</h1>
             <p>أدخل تاريخ ميلادك لنكشف لك عن برجك، صفاتك، وأسرار يومك.</p>
         </header>
-
         <section class="input-section">
             <label for="birthdate">تاريخ ميلادك:</label>
             <input type="date" id="birthdate" required>
             <button id="calculateBtn">اكتشف برجي</button>
         </section>
-
         <div id="loader" class="hidden">
             <div class="spinner"></div>
             <p>جاري تحليل أسرار الفلك...</p>
         </div>
-
         <section id="result" class="hidden">
             <img id="zodiacImage" src="" alt="صورة البرج" class="zodiac-image">
             <h2 id="zodiacName"></h2>
@@ -70,17 +83,14 @@
             </div>
         </section>
     </main>
-    
     <main class="container">
         <h2 class="section-title">الأبراج اليومية</h2>
         <div id="daily-horoscopes-grid" class="horoscope-grid"></div>
     </main>
-
     <main class="container">
         <h2 class="section-title">اكتشف صفات الأبراج بالتفصيل</h2>
         <div id="traits-grid" class="horoscope-grid"></div>
     </main>
-
     <main class="container">
         <h2 class="section-title">حاسبة التوافق بين الأبراج</h2>
         <div class="compatibility-box">
@@ -94,7 +104,6 @@
             <div id="compatibility-result"></div>
         </div>
     </main>
-
     <div id="trait-modal" class="modal-backdrop hidden">
         <div class="modal-content container">
             <button id="modal-close-btn" class="modal-close">×</button>
@@ -111,7 +120,6 @@
             </div>
         </div>
     </div>
-
     <ins class="adsbygoogle"
         style="display:block; margin: 25px auto;"
         data-ad-client="ca-pub-2481147154331239"
@@ -119,7 +127,6 @@
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
     <footer>
         <p>
             صُنع بحب ✨ بواسطة bouaida
@@ -127,8 +134,6 @@
             <a href="privacy.html" class="footer-link">سياسة الخصوصية</a>
         </p>
     </footer>
-
     <script src="script.js"></script>
-
 </body>
 </html>
