@@ -2,14 +2,13 @@
 /* === ملف التصميم المتكامل - النسخة النهائية === */
 /* =============================================== */
 
-/* --- إعدادات أساسية وهوية التصميم (كودك الأصلي) --- */
 :root {
-    --primary-color: #FFD700; /* ذهبي فلكي */
-    --background-start: #0c0a1f; /* أزرق ليلي */
-    --background-end: #2a2a55; /* بنفسجي داكن */
-    --text-primary: #F0F0F0; /* أبيض فاتح */
-    --text-secondary: #b0b0d0; /* رمادي-بنفسجي فاتح */
-    --container-bg: rgba(22, 22, 44, 0.7); /* لون الحاوية الشفاف */
+    --primary-color: #FFD700;
+    --background-start: #0c0a1f;
+    --background-end: #2a2a55;
+    --text-primary: #F0F0F0;
+    --text-secondary: #b0b0d0;
+    --container-bg: rgba(22, 22, 44, 0.7);
     --container-border: rgba(255, 215, 0, 0.2);
 }
 
@@ -18,14 +17,59 @@ body {
     background: linear-gradient(160deg, var(--background-start), var(--background-end));
     color: var(--text-primary);
     margin: 0;
-    padding: 20px;
+    /* تعديل هام: تغيير الحشوة من الأسفل إلى الأعلى لتناسب الشريط العلوي */
+    padding-top: 80px; 
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
     min-height: 100vh;
-    /* تعديل هام: إضافة مساحة سفلية لمنع شريط التنقل من تغطية المحتوى */
-    padding-bottom: 80px; 
 }
 
-/* --- الحاويات الرئيسية --- */
+/* ======================================================= */
+/* ===      شريط التنقل العلوي (بدلاً من السفلي)     === */
+/* ======================================================= */
+.top-nav {
+    position: fixed;
+    /* تم التغيير من bottom إلى top */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: center; /* توسيط العناصر */
+    align-items: center;
+    gap: 20px; /* إضافة مسافة بين العناصر */
+    background: rgba(12, 10, 31, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* تم التغيير من border-top إلى border-bottom */
+    border-bottom: 1px solid var(--container-border);
+    /* تم تغيير اتجاه الظل للأسفل */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    z-index: 1001;
+    padding: 0 20px; /* إضافة هوامش جانبية */
+}
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.nav-item.active {
+    color: var(--primary-color);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    background-color: rgba(255, 215, 0, 0.1);
+}
+.nav-item:not(.active):hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- (بقية كود الـ CSS يبقى كما هو) --- */
 .container, .articles-container, .single-article-container, .privacy-container {
     background: var(--container-bg);
     backdrop-filter: blur(10px);
@@ -34,18 +78,14 @@ body {
     padding: 30px 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    max-width: 600px; /* عرض موحد للحاوية الرئيسية */
+    max-width: 600px;
     width: 100%;
     text-align: center;
     margin: 20px auto;
 }
-
-/* حاويات المقالات وسياسة الخصوصية يمكن أن تكون أعرض */
 .articles-container, .single-article-container, .privacy-container {
     max-width: 800px;
 }
-
-/* --- باقي الستايلات الأصلية --- */
 header { margin-bottom: 25px; }
 .logo { margin-bottom: 15px; animation: rotateLogo 20s linear infinite; }
 header h1 { color: var(--primary-color); margin-bottom: 10px; margin-top: 0; font-weight: 700; font-size: 2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
@@ -78,8 +118,6 @@ footer { margin-top: 40px; padding-bottom: 20px; text-align: center; width: 100%
 footer p { margin: 0; color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 .footer-link { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; }
 .footer-link:hover { color: var(--primary-color); text-decoration: underline; }
-
-/* ... (هنا تأتي ستايلات الأقسام الجديدة التي أضفناها سابقاً) ... */
 .section-title { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); margin-top: 25px; margin-bottom: 30px; }
 .horoscope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
 .horoscope-card { background-color: rgba(0, 0, 0, 0.25); border: 1px solid var(--container-border); border-radius: 15px; padding: 20px 10px; text-align: center; transition: all 0.3s ease; }
@@ -103,8 +141,6 @@ footer p { margin: 0; color: var(--text-secondary); font-size: 1rem; line-height
 #calculate-compatibility-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4); }
 #compatibility-result { padding: 20px; background-color: rgba(0, 0, 0, 0.2); border-radius: 15px; min-height: 50px; color: var(--text-secondary); line-height: 1.8; }
 #compatibility-result h4 { color: var(--primary-color); margin: 0 0 10px 0; }
-
-/* تصميم صفحات المقالات (مدمج هنا) */
 .articles-container h1, .single-article-container h1, .privacy-container h1 { color: var(--primary-color); text-align: center; margin-bottom: 30px; font-size: 2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
 .article-card { cursor: pointer; }
 .article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); border-color: rgba(255, 215, 0, 0.4); }
@@ -116,42 +152,3 @@ footer p { margin: 0; color: var(--text-secondary); font-size: 1rem; line-height
 .article-image { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
 .article-content { font-size: 1.1em; line-height: 1.9; color: var(--text-primary); text-align: right; }
 .article-content h3 { color: var(--primary-color); margin-top: 30px; border-bottom: 1px solid var(--container-border); padding-bottom: 10px; }
-
-/* ======================================================= */
-/* ===      ستايل شريط التنقل السفلي (إصلاح)        === */
-/* ======================================================= */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(12, 10, 31, 0.8); /* لون أغمق قليلاً من الحاوية */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid var(--container-border);
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-    z-index: 1001; /* فوق كل شيء */
-}
-.nav-item {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-family: 'Cairo', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 8px 18px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-.nav-item.active {
-    color: var(--primary-color);
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
-    background-color: rgba(255, 215, 0, 0.1);
-}
-.nav-item:not(.active):hover {
-    color: var(--text-primary);
-    background-color: rgba(255, 255, 255, 0.1);
-}
