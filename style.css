@@ -21,10 +21,12 @@ body {
     padding: 20px;
     box-sizing: border-box;
     min-height: 100vh;
+    /* تعديل هام: إضافة مساحة سفلية لمنع شريط التنقل من تغطية المحتوى */
+    padding-bottom: 80px; 
 }
 
-/* --- الحاوية الرئيسية بتأثير الزجاج (كودك الأصلي) --- */
-.container {
+/* --- الحاويات الرئيسية --- */
+.container, .articles-container, .single-article-container, .privacy-container {
     background: var(--container-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -32,13 +34,18 @@ body {
     padding: 30px 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    max-width: 600px;
+    max-width: 600px; /* عرض موحد للحاوية الرئيسية */
     width: 100%;
     text-align: center;
-    margin: 20px auto; /* تعديل بسيط لضمان تباعد الحاويات */
+    margin: 20px auto;
 }
 
-/* --- هنا باقي كودك الأصلي كما هو... --- */
+/* حاويات المقالات وسياسة الخصوصية يمكن أن تكون أعرض */
+.articles-container, .single-article-container, .privacy-container {
+    max-width: 800px;
+}
+
+/* --- باقي الستايلات الأصلية --- */
 header { margin-bottom: 25px; }
 .logo { margin-bottom: 15px; animation: rotateLogo 20s linear infinite; }
 header h1 { color: var(--primary-color); margin-bottom: 10px; margin-top: 0; font-weight: 700; font-size: 2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
@@ -72,196 +79,79 @@ footer p { margin: 0; color: var(--text-secondary); font-size: 1rem; line-height
 .footer-link { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; }
 .footer-link:hover { color: var(--primary-color); text-decoration: underline; }
 
+/* ... (هنا تأتي ستايلات الأقسام الجديدة التي أضفناها سابقاً) ... */
+.section-title { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); margin-top: 25px; margin-bottom: 30px; }
+.horoscope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+.horoscope-card { background-color: rgba(0, 0, 0, 0.25); border: 1px solid var(--container-border); border-radius: 15px; padding: 20px 10px; text-align: center; transition: all 0.3s ease; }
+.horoscope-card.clickable { cursor: pointer; }
+.horoscope-card.clickable:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); border-color: rgba(255, 215, 0, 0.5); }
+.horoscope-card img { width: 60px; height: 60px; filter: drop-shadow(0 0 8px var(--primary-color)); margin-bottom: 10px; }
+.horoscope-card h3 { color: var(--text-primary); font-size: 1.1rem; margin: 0 0 10px 0; font-weight: 700; }
+.horoscope-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+.modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(12, 10, 31, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-backdrop.hidden { display: none; }
+.modal-content { position: relative; animation: slideUpFadeIn 0.5s ease-out forwards; }
+.modal-close { position: absolute; top: 15px; left: 20px; background: none; border: none; font-size: 2.5rem; color: var(--text-secondary); cursor: pointer; line-height: 1; transition: color 0.3s ease; }
+.modal-close:hover { color: var(--primary-color); }
+.compatibility-box { text-align: center; }
+.compatibility-instruction { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6; }
+.selectors-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 30px; }
+.heart-icon { font-size: 2rem; color: var(--primary-color); animation: pulse 2s infinite ease-in-out; }
+@keyframes pulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 5px var(--primary-color); } 50% { transform: scale(1.15); text-shadow: 0 0 15px var(--primary-color); } }
+.zodiac-select { flex: 1; background-color: rgba(0, 0, 0, 0.3); border: 1px solid var(--primary-color); color: var(--text-primary); padding: 12px; border-radius: 10px; font-family: 'Cairo', sans-serif; font-size: 1rem; text-align: center; cursor: pointer; -webkit-appearance: none; appearance: none; }
+#calculate-compatibility-btn { background: linear-gradient(45deg, #FFC107, var(--primary-color)); color: #111; border: none; padding: 14px 40px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2); margin-bottom: 20px; }
+#calculate-compatibility-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4); }
+#compatibility-result { padding: 20px; background-color: rgba(0, 0, 0, 0.2); border-radius: 15px; min-height: 50px; color: var(--text-secondary); line-height: 1.8; }
+#compatibility-result h4 { color: var(--primary-color); margin: 0 0 10px 0; }
+
+/* تصميم صفحات المقالات (مدمج هنا) */
+.articles-container h1, .single-article-container h1, .privacy-container h1 { color: var(--primary-color); text-align: center; margin-bottom: 30px; font-size: 2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+.article-card { cursor: pointer; }
+.article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); border-color: rgba(255, 215, 0, 0.4); }
+.article-card img { width: 100%; height: auto; display: block; opacity: 0.8; }
+.card-content { padding: 20px 25px; }
+.card-content h2 { margin-top: 0; font-size: 1.4em; color: var(--primary-color); margin-bottom: 10px; }
+.card-content p { font-size: 1em; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+.article-title { font-size: 2.2em; line-height: 1.4; margin: 10px 0 25px 0; }
+.article-image { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+.article-content { font-size: 1.1em; line-height: 1.9; color: var(--text-primary); text-align: right; }
+.article-content h3 { color: var(--primary-color); margin-top: 30px; border-bottom: 1px solid var(--container-border); padding-bottom: 10px; }
+
 /* ======================================================= */
-/* ===         إضافات الأقسام الجديدة (2024)         === */
+/* ===      ستايل شريط التنقل السفلي (إصلاح)        === */
 /* ======================================================= */
-
-/* --- عنوان الأقسام الجديدة --- */
-.section-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-    margin-top: 25px;
-    margin-bottom: 30px;
-}
-
-/* --- شبكة عرض بطاقات الأبراج --- */
-.horoscope-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.horoscope-card {
-    background-color: rgba(0, 0, 0, 0.25);
-    border: 1px solid var(--container-border);
-    border-radius: 15px;
-    padding: 20px 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.horoscope-card.clickable {
-    cursor: pointer;
-}
-
-.horoscope-card.clickable:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 215, 0, 0.5);
-}
-
-.horoscope-card img {
-    width: 60px;
-    height: 60px;
-    filter: drop-shadow(0 0 8px var(--primary-color));
-    margin-bottom: 10px;
-}
-
-.horoscope-card h3 {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-    margin: 0 0 10px 0;
-    font-weight: 700;
-}
-
-.horoscope-card p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0;
-}
-
-
-/* --- نافذة عرض الصفات (Modal) --- */
-.modal-backdrop {
+.bottom-nav {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(12, 10, 31, 0.8);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 1000;
+    right: 0;
+    height: 60px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    background: rgba(12, 10, 31, 0.8); /* لون أغمق قليلاً من الحاوية */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--container-border);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+    z-index: 1001; /* فوق كل شيء */
 }
-
-.modal-backdrop.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: var(--container-bg);
-    border: 1px solid var(--container-border);
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    animation: slideUpFadeIn 0.5s ease-out forwards;
-}
-
-.modal-close {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    background: none;
-    border: none;
-    font-size: 2.5rem;
+.nav-item {
+    text-decoration: none;
     color: var(--text-secondary);
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.3s ease;
-}
-
-.modal-close:hover {
-    color: var(--primary-color);
-}
-
-
-/* --- حاسبة التوافق --- */
-.compatibility-box {
-    text-align: center;
-}
-
-.compatibility-instruction {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.selectors-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.heart-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-    animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); text-shadow: 0 0 5px var(--primary-color); }
-    50% { transform: scale(1.15); text-shadow: 0 0 15px var(--primary-color); }
-}
-
-.zodiac-select {
-    flex: 1;
-    background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--primary-color);
-    color: var(--text-primary);
-    padding: 12px;
-    border-radius: 10px;
     font-family: 'Cairo', sans-serif;
-    font-size: 1rem;
-    text-align: center;
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-#calculate-compatibility-btn {
-    background: linear-gradient(45deg, #FFC107, var(--primary-color));
-    color: #111;
-    border: none;
-    padding: 14px 40px;
-    border-radius: 50px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 1.1rem;
     font-weight: 700;
-    cursor: pointer;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 20px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-    margin-bottom: 20px;
 }
-
-#calculate-compatibility-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
-}
-
-#compatibility-result {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    min-height: 50px;
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-#compatibility-result h4 {
+.nav-item.active {
     color: var(--primary-color);
-    margin: 0 0 10px 0;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+    background-color: rgba(255, 215, 0, 0.1);
+}
+.nav-item:not(.active):hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
 }
