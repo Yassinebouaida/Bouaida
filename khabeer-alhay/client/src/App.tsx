@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import ServiceDetail from './pages/ServiceDetail';
 import CreateService from './pages/CreateService';
 import Profile from './pages/Profile';
+import Analytics from './pages/Analytics';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -52,6 +53,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Profile />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/analytics" 
+                element={
+                  <ProtectedRoute>
+                    <Analytics />
                   </ProtectedRoute>
                 } 
               />
